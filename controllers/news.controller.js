@@ -21,7 +21,7 @@ module.exports.newsController = {
             })
             res.json(data)
     },
-    getNews: async (req, res) => {
+    getNewsById: async (req, res) => {
         const data = await News.find(req.params.id)//чтобы выводило по id
         res.json(data)
     },
@@ -30,7 +30,7 @@ module.exports.newsController = {
         res.json(data)
     },
 // - вывод всех новостей из определенной категории
-    getNews: async (req, res) => {
+    getNewsByCategories: async (req, res) => {
         const data = await News.find({categories: req.params.id})
         res.json(data)
     }

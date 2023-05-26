@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 const newsSchema = mongoose.Schema({
     name: String,
     text: String,
-    categoriesId: String,
+    categoriesId: {
+        ref:"categories",
+        type: mongoose.SchemaTypes.ObjectId
+    },
 });
 
 const News = mongoose.model('News', newsSchema);
