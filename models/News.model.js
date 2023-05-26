@@ -6,7 +6,7 @@ const newsSchema = mongoose.Schema({
     categoriesId: {
         ref:"categories",
         type: mongoose.SchemaTypes.ObjectId
-    },
+    }
 });
 
 const News = mongoose.model('News', newsSchema);

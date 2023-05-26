@@ -15,11 +15,14 @@ module.exports.newsController = {
         res.json("Новость удалена")
     },
     patchNews: async (req, res) => { //изменять по id
-        const data = await News.findByAndUpdate(req.params.id,
+        const data = await News.findByIdAndUpdate(req.params.id,
             {
-
+                name: req.body.name,
+                text: req.body.text,
+                categoriesId: req.body.categoriesId
+            }).then(() => {
+                res.json('Новость обновлена')
             })
-            res.json(data)
     },
     getNewsById: async (req, res) => {
         const data = await News.find(req.params.id)//чтобы выводило по id
